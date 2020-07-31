@@ -1,0 +1,10 @@
+com\springboot\Dao\StudentDao.class
+com\springboot\Controller\StudentController.class
+com\springboot\Main.class
+com\springboot\Controller\WebController.class
+com\springboot\Dao\UnivesityDao.class
+com\springboot\Controller\UniversityController.class
+com\springboot\Entity\Student.class
+com\springboot\Entity\University.class
+com\springboot\Service\StudentService.class
+com\springboot\Service\UniveristyService.class

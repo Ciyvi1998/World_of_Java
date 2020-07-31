@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+<h1>Registration Form</h1>
+<!--<form th:action="@{/st}" action="/students/add" th:object="${student}" method="post">-->
+<!--    <label>სახელი:</label><br>-->
+<!--    <input type="text" th:field="*{name}"><br>-->
+<!--    <label>გვარი:</label><br>-->
+<!--    <input type="text" th:field="*{surname}"><br>-->
+<!--    <input type="submit" value="რეგისტრაცია">-->
+<!--</form>-->
+
+<form  action="/students/add"   method="post">
+    <label for="firstName">სახელი:</label><br>
+    <input type="text" id="firstName" name="firstName"><br>
+    <label for="surName">გვარი:</label><br>
+    <input type="text" id="surName" name="surName"><br>
+
+    <input type="submit" value="რეგისტრაცია">
+</form>
+
+</body>
+</html>
