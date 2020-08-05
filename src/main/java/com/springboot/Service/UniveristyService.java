@@ -1,11 +1,11 @@
 package com.springboot.Service;
 
-import com.springboot.Dao.StudentDao;
 import com.springboot.Dao.UnivesityDao;
-import com.springboot.Entity.Student;
 import com.springboot.Entity.University;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UniveristyService {
@@ -15,6 +15,10 @@ public class UniveristyService {
 
     public void save(University university) {
         univesityDao.save(university);
+    }
+
+    public Optional<University> findById(Integer id){
+        return univesityDao.findById(id);
     }
 
 

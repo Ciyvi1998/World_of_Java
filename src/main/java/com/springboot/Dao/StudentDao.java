@@ -21,16 +21,4 @@ public interface StudentDao extends CrudRepository<Student, Integer> {
     Optional<Student> findById(Integer integer);
 
 
-
-
-    //    public List<Student> allStudents() {
-//        List<Student> list = new ArrayList<Student>();
-//        Student student = new Student();
-//        student.setId(1);
-//        student.setName("Nika");
-//        student.setName("Kakauridze");
-//        list.add(student);
-//        return list;
-//    }
-
 }
