@@ -1,7 +1,5 @@
 package com.springboot.Entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,27 +15,16 @@ public class University {
     private String name;
     private String location;
 
-    @OneToMany
-    @JoinColumn(name = "university_id", nullable = false)
-    @JsonManagedReference
-    List<Student> student = new ArrayList<Student>();
+//    @OneToMany(mappedBy = "university")
+//    //@JoinColumn(name = "university_id", referencedColumnName = "university_id")
+//    List<Student> student = new ArrayList<Student>();
 
-    public University(Integer id, String name, String location, List<Student> student) {
+    public University(Integer id, String name, String location) {
         this.id = id;
         this.name = name;
         this.location = location;
-        this.student = student;
     }
-
     public University(){}
-
-    public List<Student> getStudent() {
-        return student;
-    }
-
-    public void setStudent(List<Student> student) {
-        this.student = student;
-    }
 
     public Integer getId() {
         return id;

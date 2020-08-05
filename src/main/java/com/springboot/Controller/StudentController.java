@@ -1,9 +1,7 @@
 package com.springboot.Controller;
 
 import com.springboot.Entity.Student;
-import com.springboot.Entity.University;
 import com.springboot.Service.StudentService;
-import com.springboot.Service.UniveristyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -21,9 +19,6 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @Autowired
-    private UniveristyService univeristyService;
-
     @RequestMapping( method = RequestMethod.GET)
      public String  findAll(Model model){
 
@@ -33,9 +28,7 @@ public class StudentController {
     }
 
 //    @RequestMapping(value = "/add" , method = RequestMethod.POST)
-//    public String  saveStudent(@ModelAttribute("student") Student student,
-//                               Model model) {
-//        model.addAttribute("student", student);
+//    public String  saveStudent(@ModelAttribute("student") Student student) {
 //        studentService.saveStudent(student);
 //        return "registerStudent";
 //    }
@@ -43,18 +36,15 @@ public class StudentController {
     @RequestMapping(value = "/add" , method = RequestMethod.POST)
     public String  saveStudent(@RequestParam(value = "firstName", required = false) String firstName,
                                @RequestParam(value = "surName", required = false) String surName,
-                               @RequestParam(value = "universityId", required = false) Integer universityId,
                                Model model) {
         Student student = new Student();
-        //Student student1 = new Student(99,"kale","kalevichi", univeristyService.findById(universityId));
 
         model.addAttribute("firstName", firstName);
         model.addAttribute("surName", surName);
-        model.addAttribute("universityId", universityId);
 
         student.setName(firstName);
         student.setSurname(surName);
-     //   student.setUniversity();
+
         studentService.saveStudent(student);
         return "registerStudent";
     }
@@ -64,12 +54,10 @@ public class StudentController {
         return studentService.findById(id);
     }
 
-    @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public String deleteById(@RequestParam(value = "id", required = false) Integer id,
-                             Model model){
-        model.addAttribute("id", id);
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String deleteById(@RequestParam(value = "id", required = false) @PathVariable Integer id){
         studentService.deleteById(id);
-        return "redirect:/students";
+        return "students";
     }
 
     @RequestMapping(value = "/{id}",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
